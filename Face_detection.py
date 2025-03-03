@@ -1,5 +1,6 @@
 import cv2
 
+
 def detect_faces(image_path):
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     image = cv2.imread(image_path)
@@ -15,5 +16,5 @@ def detect_faces(image_path):
     cv2.destroyAllWindows()
 
 # Test function
-detect_faces("dataset/sample.jpg")
+detect_faces("Dataset/Chinese_man.jpg")
 #commecnts

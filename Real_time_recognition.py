@@ -1,5 +1,5 @@
 import cv2
-import Face_recognition
+import face_recognition
 
 # Load known faces
 known_encodings, known_names = [], []  # Load these as before
@@ -9,11 +9,11 @@ cap = cv2.VideoCapture(0)
 while True:
     ret, frame = cap.read()
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    face_locations = Face_recognition.face_locations(rgb_frame)
-    face_encodings = Face_recognition.face_encodings(rgb_frame, face_locations)
+    face_locations = face_recognition.face_locations(rgb_frame)
+    face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)
 
     for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
-        matches = Face_recognition.compare_faces(known_encodings, face_encoding)
+        matches = face_recognition.compare_faces(known_encodings, face_encoding)
         name = "Unknown"
 
         if True in matches:

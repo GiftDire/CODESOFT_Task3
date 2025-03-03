@@ -1,4 +1,4 @@
-import Face_detection
+import face_recognition
 import cv2
 import os
 
@@ -8,9 +8,9 @@ def load_known_faces():
     known_encodings = []
     known_names = []
 
-    for file in os.listdir("dataset/known/"):
+    for file in os.listdir("Dataset/"):
         if file.endswith(".jpg") or file.endswith(".png"):
-            img = face_recognition.load_image_file(f"dataset/known/{file}")
+            img = face_recognition.load_image_file(f"Dataset/{file}")
             encoding = face_recognition.face_encodings(img)[0]
             known_encodings.append(encoding)
             known_names.append(file.split(".")[0])
@@ -36,4 +36,4 @@ def recognize_face(image_path):
 
 
 # Test function
-recognize_face("dataset/unknown/test.jpg")
+recognize_face("Dataset/WhatsApp Image 2025-03-03 at 22.08.08.jpeg")
