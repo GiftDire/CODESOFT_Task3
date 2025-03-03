@@ -16,3 +16,4 @@ def detect_faces(image_path):
 
 # Test function
 detect_faces("dataset/sample.jpg")
+#commecnts
