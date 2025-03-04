@@ -1,5 +1,6 @@
 import cv2
 
+#upload the image and detect face func
 def detect_faces(image_path):
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     image = cv2.imread(image_path)

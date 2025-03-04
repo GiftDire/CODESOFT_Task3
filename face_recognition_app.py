@@ -34,7 +34,7 @@ def recognize_face(image_path):
             return "Face not recognized."
 
 
-# Live face recognition from webcam
+# Live face recognition from your webcam
 def start_webcam_recognition():
     known_encodings, known_names = load_known_faces()
     cap = cv2.VideoCapture(0)

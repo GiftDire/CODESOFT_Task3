@@ -3,8 +3,9 @@ from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 from Face_detection import detect_faces
 from face_recognition_app import recognize_face, load_known_faces, start_webcam_recognition
+#imports
 
-# Load known faces once
+# Load known faces once existing from Dataset that you have
 known_encodings, known_names = load_known_faces()
 
 # Create main application window
@@ -19,15 +20,11 @@ def upload_and_detect():
 
     if not file_path:
         return
-
-    # Display selected image
     img = Image.open(file_path)
     img = img.resize((250, 250))
     img_tk = ImageTk.PhotoImage(img)
     label_image.config(image=img_tk)
     label_image.image = img_tk
-
-    # Call the function from `face_detection.py`
     detect_faces(file_path)
 
 
@@ -37,15 +34,12 @@ def upload_and_recognize():
 
     if not file_path:
         return
-
     # Display selected image
     img = Image.open(file_path)
     img = img.resize((250, 250))
     img_tk = ImageTk.PhotoImage(img)
     label_image.config(image=img_tk)
     label_image.image = img_tk
-
-    # Call the function from `face_recognition_logic.py`
     result = recognize_face(file_path)
     messagebox.showinfo("Recognition Result", result)
 
@@ -65,6 +59,4 @@ btn_webcam.pack(pady=10)
 
 label_image = tk.Label(root)
 label_image.pack(pady=10)
-
-# Run the application
 root.mainloop()
